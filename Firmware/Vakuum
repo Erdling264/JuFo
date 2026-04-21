@@ -1,0 +1,42 @@
+#define BLYNK_PRINT Serial
+
+#include <WiFi.h>
+#include <WiFiClient.h>
+#include <BlynkSimpleEsp32.h>
+int volt
+char auth[] = "nDpI7KiDZVziLlTpWp6RpaHSYB776EqE";
+
+char ssid[] = "Jugend-forscht";
+char pass[] = "jufo2019";
+
+
+
+Blynk.virtualWrite(V0, volt);
+
+
+
+
+
+
+
+//BLYNK_WRITE(V36){
+//int pinValue = param.asInt();
+//}
+ //BLYNK_READ(V36) {
+ // Blynk.virtualWrite(V36, millis());
+//}
+
+
+void setup()
+{
+  Serial.begin(9600);
+  Blynk.begin(auth, ssid, pass);
+  pinMode(23, INPUT);
+}
+
+void loop()
+{
+  Blynk.run();
+  volt = analogRead(12);
+  Serial.println(Volt)
+}
